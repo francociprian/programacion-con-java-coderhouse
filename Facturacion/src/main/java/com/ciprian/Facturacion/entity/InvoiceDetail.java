@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,14 +29,12 @@ public class InvoiceDetail {
     @Column(name = "invc_detail_id")
     private int id;
 
-    @ManyToOne
     @JoinColumn(name = "invc_detail_invc_id")
     private Invoice invoice;
 
     @Column(name = "invc_detail_amount")
     private int amount;
 
-    @ManyToOne
     @JoinColumn(name = "invc_detail_prod_id")
     private Product product;
 

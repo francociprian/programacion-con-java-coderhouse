@@ -8,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -32,7 +31,6 @@ public class Invoice {
     @Column(name = "invc_id")
     private int id;
 
-    @ManyToOne
     @JoinColumn(name = "invc_client_id")
     private Client ClientId;
 
