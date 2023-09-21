@@ -1,25 +1,14 @@
 package com.ciprian.Facturacion.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "CLIENT")
 public class Client {
     public Client() {
         super();
-    }
-
-    public Client(int id, String name, String lastname, String docnumber) {
-        super();
-        this.id = id;
-        this.name = name;
-        this.lastname = lastname;
-        this.docnumber = docnumber;
     }
 
     @Id
@@ -35,6 +24,16 @@ public class Client {
 
     @Column(name = "client_docnumber")
     private String docnumber;
+
+    @OneToMany(mappedBy = "client")
+    private List<Invoice> invoices;
+
+    public Client(int id, String name, String lastname, String docnumber) {
+        this.id = id;
+        this.name = name;
+        this.lastname = lastname;
+        this.docnumber = docnumber;
+    }
 
     // Getters and setters
     public int getId() {
@@ -68,5 +67,4 @@ public class Client {
     public void setDocnumber(String docnumber) {
         this.docnumber = docnumber;
     }
-
 }

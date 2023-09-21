@@ -1,11 +1,8 @@
 package com.ciprian.Facturacion.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "PRODUCT")
@@ -14,32 +11,30 @@ public class Product {
     public Product() {
         super();
     }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "prod_id")
+    private int id;
+    @Column(name = "prod_description")
+    private String description;
+    @Column(name = "prod_code")
+    private String code;
+    @Column(name = "prod_stock")
+    private int stock;
+    @Column(name = "prod_price")
+    private double price;
+
+    @OneToMany
+    @Column (name = "invoice_detail_id")
+    private List<InvoiceDetail> invoiceDetails;
 
     public Product(int id, String description, String code, int stock, Long price) {
-        super();
         this.id = id;
         this.description = description;
         this.code = code;
         this.stock = stock;
         this.price = price;
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "prod_id")
-    private int id;
-
-    @Column(name = "prod_description")
-    private String description;
-
-    @Column(name = "prod_code")
-    private String code;
-
-    @Column(name = "prod_stock")
-    private int stock;
-
-    @Column(name = "prod_price")
-    private double price;
 
     // Getters and setters
     public int getId() {

@@ -1,12 +1,6 @@
 package com.ciprian.Facturacion.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "INVOICE_DETAIL")
@@ -14,32 +8,32 @@ public class InvoiceDetail {
     public InvoiceDetail() {
         super();
     }
-
-    public InvoiceDetail(int id, Invoice invoice, int amount, Product product, Long price) {
-        super();
-        this.id = id;
-        this.invoice = invoice;
-        this.amount = amount;
-        this.product = product;
-        this.price = price;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "invc_detail_id")
     private int id;
 
+    @ManyToOne
     @JoinColumn(name = "invc_detail_invc_id")
     private Invoice invoice;
 
     @Column(name = "invc_detail_amount")
     private int amount;
 
+    @ManyToOne
     @JoinColumn(name = "invc_detail_prod_id")
     private Product product;
 
     @Column(name = "invc_detail_price")
-    private Long price;
+    private double price;
+
+    public InvoiceDetail(int id, Invoice invoice, int amount, Product product, double price) {
+        this.id = id;
+        this.invoice = invoice;
+        this.amount = amount;
+        this.product = product;
+        this.price = price;
+    }
 
     // Getters and setters
     public int getId() {
@@ -74,12 +68,11 @@ public class InvoiceDetail {
         this.product = product;
     }
 
-    public Long getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(double price) {
         this.price = price;
     }
-
 }
