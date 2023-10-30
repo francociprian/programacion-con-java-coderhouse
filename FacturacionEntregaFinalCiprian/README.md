@@ -2,6 +2,15 @@
 
 # 🧾 Proyecto de Facturación
 
+1. [Descripción del Proyecto](#descripción-del-proyecto)
+2. [Endpoints](#endpoints)
+   - [Cliente](#cliente)
+   - [Producto](#producto)
+   - [Factura](#factura)
+3. [Ejemplos de Solicitudes POST](#ejemplos-de-solicitudes-post)
+4. [Ejemplos de Solicitudes POST](#ejemplos-de-solicitudes-get)
+
+
 ### Descripción del Proyecto
 
 Proyecto final para el curso de Programación con Java dictado por CoderHouse.
@@ -87,7 +96,7 @@ POST /api/invoice/
 }
 ```
 
-# ⚡️ Examples of GET Requests
+# ⚡️ Ejemplos de Solicitudes GET
 
 **Ejemplo `GET` cliente by ID:**
 
