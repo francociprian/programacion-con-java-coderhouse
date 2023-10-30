@@ -187,7 +187,7 @@ GET /api/invoice/1
 {
   "data": {
     "invoiceId": 1,
-    "createdAt": "2023-10-30T02:29:24.039+00:00",
+    "createdAt": "2023-09-30T02:29:24.039+00:00",
     "total": 173.25,
     "totalProduct": 13,
     "client": {
